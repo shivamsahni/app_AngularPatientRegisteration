@@ -1,0 +1,201 @@
+<div class="container">
+    <div class="card">
+        <form novalidate #register="ngForm">
+            <h5 class="text-center">Patient Registeration</h5>
+            <div class="p-fluid p-formgrid p-grid">
+                <div class="p-field p-col-12 p-md-6">
+                    <span class="p-float-label">
+                        <input 
+                                id="patientname" 
+                                type="text" 
+                                name="patientname" 
+                                #patientnameVar="ngModel" 
+                                [(ngModel)]="registerationData.patientname"
+                                required
+                                [ngClass] = "{
+                                    'is-invalid': (patientnameVar.touched || patientnameVar.dirty) && !patientnameVar.valid
+                                }" 
+                                class="p-inputtext p-component" 
+                                pInputText>
+                        <label for="patientname">Patient Name</label>
+                        <span class="invalid-feedback">
+                            <span *ngIf="patientnameVar.errors?.required">
+                                Patient Name Required
+                            </span>
+                        </span>
+                    </span>
+
+                </div>
+                <div class="p-field p-col-12 p-md-6">
+                    <span class="p-float-label">
+                        <input 
+                                id="gender" 
+                                type="text" 
+                                name="gender"
+                                #genderVar="ngModel" 
+                                [(ngModel)]="registerationData.gender"
+                                required 
+                                [ngClass] = "{
+                                    'is-invalid' : (genderVar.touched || genderVar.dirty) && !genderVar.valid
+                                }"
+                                class="p-inputtext p-component" 
+                                pInputText>
+                        <label for="gender">Gender</label>
+                        <span class="invalid-feedback">
+                            <span *ngIf="genderVar.errors?.required">
+                                Error in Gender field
+                            </span>
+                        </span>
+                    </span>
+                    <br>
+                </div>
+                <div class="p-field p-col-12 p-md-6">
+                    <span class="p-float-label">
+                        <input 
+                                id="Email" 
+                                type="email" 
+                                name="email" 
+                                #emailVar="ngModel"
+                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                                [(ngModel)]="registerationData.email" 
+                                required 
+                                [ngClass] = "{
+                                    'is-invalid' : (emailVar.touched || emailVar.dirty) && !emailVar.valid
+                                }"
+                                class="p-inputtext p-component" 
+                                pInputText>
+                        <label for="Email">Email</label>
+                        <span class="invalid-feedback">
+                            <span *ngIf="emailVar.errors?.required">
+                                Email id required
+                            </span>
+                            <span *ngIf="emailVar.errors?.pattern">
+                                Incorrect email id
+                            </span>
+                        </span>
+                    </span>
+    
+                </div>
+                <div class="p-field p-col-12 p-md-6">
+                    <span class="p-float-label">
+                        <input 
+                                id="mobilenumber" 
+                                type="text" 
+                                name="mobilenumber"
+                                pattern="^((\\+91-?)|0)?[0-9]{10}$" 
+                                #mobilenumberVar="ngModel"
+                                [(ngModel)]="registerationData.mobilenumber" 
+                                required 
+                                [ngClass] = "{
+                                    'is-invalid' : (mobilenumberVar.touched || mobilenumberVar.dirty) && !mobilenumberVar.valid
+                                }"
+                                class="p-inputtext p-component" 
+                                pInputText>
+                        <label for="mobilenumber">Mobile Number</label>
+                        <span class="invalid-feedback">
+                            <span *ngIf="mobilenumberVar.errors?.required">
+                                Mobile number required
+                            </span>
+                            <span *ngIf="mobilenumberVar.errors?.pattern">
+                                Incorrect mobienumber
+                            </span>
+                        </span>
+                    </span>
+                </div>
+    
+                <!-- <textarea rows="5" cols="30" pinputtextarea="" class="p-inputtextarea p-inputtext p-component"></textarea> -->
+    
+                <div class="p-field p-col-12 mylabel">
+                    <label for="address mylabel">Address</label>
+                    <textarea 
+                                id="address" 
+                                type="text" 
+                                name="address" 
+                                #addressVar="ngModel"
+                                [(ngModel)]="registerationData.address" 
+                                required 
+                                [ngClass] = "{
+                                    'is-invalid' : (addressVar.touched || addressVar.dirty) && !addressVar.valid
+                                }"
+                                rows="4" 
+                                pinputtextarea
+                                class="p-inputtextarea p-inputtext p-component">
+                    </textarea>
+                    <span class="invalid-feedback">
+                        <span *ngIf="addressVar.errors?.required">
+                            Address required
+                        </span>
+                    </span>
+                </div>
+                <div class="p-field p-col-12 p-md-6">
+                    <span class="p-float-label">
+                        <input 
+                                id="city" 
+                                type="text" 
+                                name="city" 
+                                #cityVar="ngModel"
+                                [(ngModel)]="registerationData.city" 
+                                required 
+                                [ngClass] = "{
+                                    'is-invalid' : (cityVar.touched || cityVar.dirty) && !cityVar.valid
+                                }"
+                                class="p-inputtext p-component" 
+                                pInputText>
+                        <label for="city">City</label>
+                        <span class="invalid-feedback">
+                            <span *ngIf="cityVar.errors?.required">
+                                City Required
+                            </span>
+                        </span>
+                    </span>
+                </div>
+                <div class="p-field p-col-12 p-md-6 zip">
+                    <span class="p-float-label">
+                        <input 
+                                id="age" 
+                                type="number" 
+                                name="age" 
+                                #ageVar="ngModel"
+                                [(ngModel)]="registerationData.age" 
+                                required 
+                                [ngClass] = "{
+                                    'is-invalid' : (ageVar.touched || ageVar.dirty) && !ageVar.valid
+                                }"
+                                class="p-inputtext p-component" 
+                                pInputText>
+                        <label for="age">Age</label>
+                        <span class="invalid-feedback">
+                            <span *ngIf="ageVar.errors?.required">
+                                Age Required
+                            </span>
+                        </span>
+                    </span>
+                </div>
+                <div class="p-field p-col-6 p-sm-2 p-offset-4 checkout-btn ">
+                    <p-button    
+                                (onClick)="save(register)"
+                                id="checkout-btn" 
+                                [ngClass] = "{
+                                    'is-invalid' : !register.valid
+                                }" 
+                                label="Register"
+                    >
+                    </p-button>
+                    <!-- <button id="checkout-btn" [disabled]="(cartService.cartItems$ | async)?.length==0" type="button" routerLink="/checkout" class="btn btn-primary btn-block">go to checkout</button>  -->
+                    <!-- <button id="checkout-btn" [disabled]="(cartService.cartItems$ | async)?.length==0" type="button" routerLink="/checkout" class="btn btn-primary btn-block">go to checkout</button>  -->
+                    <!-- <small [hidden]="(cartService.cartItems$ | async)?.length!=0" style="color: red;"
+                        id="checkout-btn-help">Cart is Empty, Please add some products & try again...</small> -->
+                    <!-- <small *ngIf="(cartService.cartItems$ | async)?.length==0" style="color: red; ">
+                        Please correct errors
+                    </small> -->
+
+                    <!-- <span class="invalid-feedback">
+                    <span *ngIf="checkout.valid==false">
+                        Kindly Correct Errors
+                    </span>
+                    </span> -->
+                    
+                </div>
+            </div>
+        </form>
+    </div>

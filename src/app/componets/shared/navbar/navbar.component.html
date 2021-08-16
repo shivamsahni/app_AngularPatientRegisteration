@@ -1,0 +1,18 @@
+<p-menubar class="nav-bar" [model]="items" [baseZIndex]=4>  
+    <!-- <ng-template id="nav-bar-data" pTemplate="start"> -->
+
+  
+    <ng-template pTemplate="end">
+
+
+        
+            <i routerLink="/login" id="login" [hidden]='(accountService.currentUser$ | async)?.username!=""' severity="danger" class="pi pi-user-plus p-mr-4 p-text-secondary" style="font-size: 25px;" pTooltip="Login"
+            tooltipPosition="bottom">
+            </i>
+
+            <i routerLink="/" id="logout" (click)="logout()" [hidden]='(accountService.currentUser$ | async)?.username==""' severity="danger" class="pi pi-user-minus p-mr-4 p-text-secondary" style="font-size: 25px;" pTooltip="Logout"
+            tooltipPosition="bottom">
+            </i>
+
+    </ng-template>
+</p-menubar>
